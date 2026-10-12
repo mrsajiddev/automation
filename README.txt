@@ -1,12 +1,6 @@
 # Automation — Express.js with CI/CD to Vercel
 
 
-
-
-
-\
-
-
 A simple Express.js application demonstrating how to deploy a Node.js project to **Vercel using GitHub Actions and CI/CD automation**.
 
 ## 📌 Overview
@@ -38,7 +32,7 @@ The first project, `01-simple-blog`, is a simple Express.js application using EJ
 
 ## 📂 Project Structure
 
-```text
+text
 automation/
 ├── .github/
 │   └── workflows/
@@ -53,7 +47,7 @@ automation/
 │       └── style.css
 ├── README.md
 └── LICENSE
-```
+
 
 *Note: The structure above shows the expected files. Remove any entries that don't exist in your repository.*
 
@@ -69,27 +63,27 @@ Make sure you have installed:
 
 ### 1. Clone the Repository
 
-```bash
+bash
 git clone https://github.com/mrsajiddev/automation.git
-```
+
 
 ### 2. Navigate to the Application
 
-```bash
+bash
 cd automation/01-simple-blog
-```
+
 
 ### 3. Install Dependencies
 
-```bash
+bash
 npm install
-```
+
 
 ### 4. Start the Application
 
-```bash
+bash
 npm start
-```
+
 
 Open your browser and visit:
 
@@ -111,9 +105,9 @@ The project uses GitHub Actions to automate production deployment to Vercel.
 
 Workflow file:
 
-```text
+text
 .github/workflows/deploy.yml
-```
+
 
 The workflow is configured to run when changes are pushed to `main` that affect:
 
@@ -136,9 +130,9 @@ To configure automated deployment, set up your Vercel project and add the follow
 
 Configure the Vercel project's **Root Directory** as:
 
-```text
+text
 01-simple-blog
-```
+
 
 Keep credentials in GitHub Secrets. Never commit access tokens or private credentials to your repository.
 
@@ -154,12 +148,12 @@ Add screenshots of your application to a `screenshots/` folder in the repository
 
 For example:
 
-```text
+text
 automation/
 ├── screenshots/
 │   └── home-page.png
 └── README.md
-```
+
 
 Then display them in this section:
 
