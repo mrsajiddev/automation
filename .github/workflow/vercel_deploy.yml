@@ -1,32 +1,22 @@
-name: Vercel Production Deployment
-env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+name: Test GitHub Actions
+
 on:
   push:
     branches:
       - main
     paths:
-      - '01-simple-blog/**'  
+      - '01-simple-blog/**'
+  workflow_dispatch:
 
 jobs:
-  Deploy-Production:
+  test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: 01-simple-blog
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
-
-      - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Build Project Artifacts
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-        continue-on-error: true
-
-      - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Run index.js
+        working-directory: 01-simple-blog
+        run: node index.js
