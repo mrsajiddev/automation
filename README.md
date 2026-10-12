@@ -12,7 +12,7 @@ A simple Express.js application that shows how to deploy a Node.js project to **
 
 ---
 
-## Overview
+## 📌 Overview
 
 This repository is a hands-on project focused on building, organizing and deploying web applications with modern development workflows.
 
@@ -20,7 +20,7 @@ The first project, **`01-simple-blog`**, is an Express.js application that rende
 
 ---
 
-## Features
+## ✨ Features
 
 - **Express.js**: a lightweight Node.js web framework
 - **EJS templates**: render dynamic HTML pages on the server
@@ -31,7 +31,7 @@ The first project, **`01-simple-blog`**, is an Express.js application that rende
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 | Technology     | Purpose                        |
 | -------------- | ------------------------------ |
@@ -45,9 +45,9 @@ The first project, **`01-simple-blog`**, is an Express.js application that rende
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
-text
+```text
 automation/
 ├── .github/
 │   └── workflows/
@@ -62,9 +62,10 @@ automation/
 │       └── style.css         # Static assets
 ├── screenshots/
 │   └── home-page.png
+├── project.json
 ├── README.md
 └── LICENSE
-
+```
 
 ---
 
@@ -79,27 +80,27 @@ Make sure you have the following installed:
 
 ### 1. Clone the repository
 
-bash
+```bash
 git clone https://github.com/mrsajiddev/automation.git
-
+```
 
 ### 2. Go to the application folder
 
-bash
+```bash
 cd automation/01-simple-blog
-
+```
 
 ### 3. Install dependencies
 
-bash
+```bash
 npm install
-
+```
 
 ### 4. Start the application
 
-bash
+```bash
 npm start
-
+```
 
 Then open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
@@ -111,9 +112,9 @@ Deployment to Vercel is fully automated with GitHub Actions.
 
 ### How it works
 
-text
- git push ──▶ GitHub ──▶ GitHub Actions ──▶ Vercel CLI ──▶ 🚀 Live on Vercel
-
+```text
+git push ──▶ GitHub ──▶ GitHub Actions ──▶ Vercel CLI ──▶ 🚀 Live on Vercel
+```
 
 1. Make changes to the application.
 2. Commit and push the changes to the `main` branch.
@@ -123,14 +124,14 @@ text
 
 ### Workflow file
 
-text
-.github/workflows/vercel_deploy.yml
-
+```text
+.github/workflows/deploy.yml
+```
 
 The workflow runs when changes are pushed to `main` in either of these paths:
 
 - `01-simple-blog/`
-- `.github/workflows/vercel_deploy.yml`
+- `.github/workflows/deploy.yml`
 
 It can also be started manually from the **Actions** tab on GitHub.
 
@@ -150,9 +151,9 @@ To set up automated deployment, create a Vercel project, then add these secrets 
 
 In your Vercel project settings, set the **Root Directory** to:
 
-text
+```text
 01-simple-blog
-
+```
 
 > [!IMPORTANT]
 > Always keep credentials in GitHub Secrets. Never commit access tokens or private keys to the repository.
@@ -205,8 +206,22 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-<p align="center">
-  Built by <a href="https://github.com/mrsajiddev"><b>Muhammad Sajid</b></a>
-  ·
-  <a href="https://linkedin.com/in/mr-sajid">LinkedIn</a>
-</p>
+## 👋 About Me
+
+Hi, I'm **Muhammad Sajid**, a Senior Software Engineer from Lahore, Pakistan, with nearly six years of experience building web applications.
+
+I work mainly with **PHP, Laravel and WordPress**, along with **React, Next.js and Node.js** on the full-stack side. I enjoy designing clean APIs, improving application performance and automating deployments, and I'm increasingly focused on bringing **AI into real-world software**, from LLM-powered features to AI-assisted development workflows.
+
+This repository is part of my ongoing practice with modern DevOps and CI/CD.
+
+**Core skills:** PHP · Laravel · WordPress · React · Next.js · Node.js · NestJS · MySQL · PostgreSQL · REST APIs · AWS · Docker · GitHub Actions · AI Integration
+
+### 📫 Connect with me
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mr-sajid)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mrsajiddev)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mr.sajidbwn@gmail.com)
+
+---
+
+<p align="center">⭐ If you found this project useful, consider giving it a star!</p>
