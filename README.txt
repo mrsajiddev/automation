@@ -1,24 +1,37 @@
-# Automation — Express.js with CI/CD to Vercel
+# Automation: Express.js with CI/CD to Vercel
 
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![EJS](https://img.shields.io/badge/EJS-B4CA65?style=for-the-badge&logo=ejs&logoColor=black)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-A simple Express.js application demonstrating how to deploy a Node.js project to **Vercel using GitHub Actions and CI/CD automation**.
+A simple Express.js application that shows how to deploy a Node.js project to **Vercel** automatically, using **GitHub Actions** for CI/CD.
 
-## 📌 Overview
+**[🌐 View Live Demo](https://automation-red-three.vercel.app/)**
 
-This repository is a learning project focused on building, organizing, and deploying web applications with modern development workflows.
+---
 
-The first project, `01-simple-blog`, is a simple Express.js application using EJS templates and static assets.
+## Overview
 
-## ✨ Features
+This repository is a hands-on project focused on building, organizing and deploying web applications with modern development workflows.
 
-- **Express.js** — Lightweight Node.js web framework.
-- **EJS Templates** — Render dynamic HTML pages.
-- **Static Assets** — Serve CSS, JavaScript, and other public files.
-- **GitHub Actions** — Automate deployment workflows.
-- **Vercel Hosting** — Deploy the application to production.
-- **Environment Secrets** — Store deployment credentials securely in GitHub Actions.
+The first project, **`01-simple-blog`**, is an Express.js application that renders pages with EJS templates and serves static assets. Every change pushed to `main` is deployed to production automatically, with no manual steps.
 
-## 🛠️ Tech Stack
+---
+
+## Features
+
+- **Express.js**: a lightweight Node.js web framework
+- **EJS templates**: render dynamic HTML pages on the server
+- **Static assets**: serve CSS, JavaScript and other public files
+- **GitHub Actions**: automated deployment workflow
+- **Vercel hosting**: fast, reliable production deployments
+- **Secure secrets**: deployment credentials are stored in GitHub Secrets, never in code
+
+---
+
+## Tech Stack
 
 | Technology     | Purpose                        |
 | -------------- | ------------------------------ |
@@ -30,95 +43,102 @@ The first project, `01-simple-blog`, is a simple Express.js application using EJ
 | GitHub Actions | CI/CD automation               |
 | Vercel         | Application hosting            |
 
-## 📂 Project Structure
+---
+
+## Project Structure
 
 text
 automation/
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml
+│       └── deploy.yml        # CI/CD pipeline
 ├── 01-simple-blog/
-│   ├── index.js
+│   ├── index.js              # Express server entry point
 │   ├── package.json
 │   ├── package-lock.json
 │   ├── views/
-│   │   └── home.ejs
+│   │   └── home.ejs          # EJS template
 │   └── public/
-│       └── style.css
+│       └── style.css         # Static assets
+├── screenshots/
+│   └── home-page.png
 ├── README.md
 └── LICENSE
 
 
-*Note: The structure above shows the expected files. Remove any entries that don't exist in your repository.*
+---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-Make sure you have installed:
+Make sure you have the following installed:
 
-- [Node.js](https://nodejs.org/)
+- [Node.js](https://nodejs.org/) (v18 or later)
 - [Git](https://git-scm.com/)
-- A GitHub account
 
-### 1. Clone the Repository
+### 1. Clone the repository
 
 bash
 git clone https://github.com/mrsajiddev/automation.git
 
 
-### 2. Navigate to the Application
+### 2. Go to the application folder
 
 bash
 cd automation/01-simple-blog
 
 
-### 3. Install Dependencies
+### 3. Install dependencies
 
 bash
 npm install
 
 
-### 4. Start the Application
+### 4. Start the application
 
 bash
 npm start
 
 
-Open your browser and visit:
+Then open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
-**[http://localhost:3000](http://localhost:3000)**
+---
 
 ## ⚙️ CI/CD Workflow
 
-The project uses GitHub Actions to automate production deployment to Vercel.
+Deployment to Vercel is fully automated with GitHub Actions.
 
-### Deployment Flow
+### How it works
+
+text
+ git push ──▶ GitHub ──▶ GitHub Actions ──▶ Vercel CLI ──▶ 🚀 Live on Vercel
+
 
 1. Make changes to the application.
-2. Commit and push your changes to the `main` branch.
-3. GitHub Actions detects changes to the application or deployment workflow.
+2. Commit and push the changes to the `main` branch.
+3. GitHub Actions detects changes in the app or the workflow file.
 4. The workflow installs the Vercel CLI and deploys the project.
 5. Vercel builds and hosts the application.
 
-### GitHub Actions Workflow
-
-Workflow file:
+### Workflow file
 
 text
-.github/workflows/deploy.yml
+.github/workflows/vercel_deploy.yml
 
 
-The workflow is configured to run when changes are pushed to `main` that affect:
+The workflow runs when changes are pushed to `main` in either of these paths:
 
 - `01-simple-blog/`
-- `.github/workflows/deploy.yml`
+- `.github/workflows/vercel_deploy.yml`
 
-It can also be triggered manually through the GitHub Actions tab.
+It can also be started manually from the **Actions** tab on GitHub.
+
+---
 
 ## 🔐 Deployment Configuration
 
-To configure automated deployment, set up your Vercel project and add the following repository secrets in:
+To set up automated deployment, create a Vercel project, then add these secrets under:
 
 **GitHub → Repository → Settings → Secrets and variables → Actions**
 
@@ -128,71 +148,65 @@ To configure automated deployment, set up your Vercel project and add the follow
 | `VERCEL_ORG_ID`     | Vercel team or account ID |
 | `VERCEL_PROJECT_ID` | Vercel project ID         |
 
-Configure the Vercel project's **Root Directory** as:
+In your Vercel project settings, set the **Root Directory** to:
 
 text
 01-simple-blog
 
 
-Keep credentials in GitHub Secrets. Never commit access tokens or private credentials to your repository.
+> [!IMPORTANT]
+> Always keep credentials in GitHub Secrets. Never commit access tokens or private keys to the repository.
 
-## 🌐 Live Demo
-
-**Live Application:** [Open the deployed application](https://your-app.vercel.app)
-
-Replace `https://your-app.vercel.app` with your actual Vercel deployment URL.
+---
 
 ## 🖼️ Screenshots
 
-Add screenshots of your application to a `screenshots/` folder in the repository.
+![Home page of the simple blog](screenshots/home-page.png)
 
-For example:
+---
 
-text
-automation/
-├── screenshots/
-│   └── home-page.png
-└── README.md
+## 📚 What This Project Covers
 
-
-Then display them in this section:
-
-
-
-*If you haven't added the screenshot file yet, upload it first. Otherwise, GitHub will show a broken image.*
-
-## 📚 What I'm Learning
-
-- Node.js and Express.js application development
+- Building Node.js applications with Express.js
 - Server-side rendering with EJS
 - Git and GitHub workflows
-- CI/CD using GitHub Actions
+- CI/CD pipelines with GitHub Actions
 - Automated production deployments
-- Cloud deployment with Vercel
+- Cloud hosting on Vercel
+
+---
 
 ## 🗺️ Roadmap
 
-- [x] Create a basic Express.js application
+- [x] Build a basic Express.js application
 - [x] Configure GitHub Actions for deployment
 - [x] Deploy the application to Vercel
 - [ ] Add more sample projects
-- [ ] Add automated testing
+- [ ] Add automated testing (Jest + Supertest)
 - [ ] Improve deployment checks and error handling
+
+---
 
 ## 🤝 Contributing
 
 Suggestions and improvements are welcome.
 
-1. Fork the repository.
-2. Create a feature branch.
-3. Commit your changes.
-4. Open a pull request.
-
-## 📄 License
-
-This project is intended for learning and experimentation. If you include an MIT license, add a `LICENSE` file containing the appropriate MIT license text.
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/my-change`
+3. Commit your changes: `git commit -m "Add my change"`
+4. Push the branch: `git push origin feature/my-change`
+5. Open a pull request
 
 ---
 
-**Built by [Muhammad Sajid](https://github.com/mrsajiddev)**
+## 📄 License
 
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+<p align="center">
+  Built by <a href="https://github.com/mrsajiddev"><b>Muhammad Sajid</b></a>
+  ·
+  <a href="https://linkedin.com/in/mr-sajid">LinkedIn</a>
+</p>
