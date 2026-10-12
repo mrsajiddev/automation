@@ -32,7 +32,7 @@ This project explores the fundamentals of continuous integration and continuous 
 
 ## CI/CD Workflow
 
-```text
+text
 Developer
    |
    | Push changes to main
@@ -54,7 +54,6 @@ Vercel Production
    |
    v
 Live Express.js Application
-```
 
 ### Deployment Process
 
@@ -80,7 +79,7 @@ Live Express.js Application
 
 ## Project Structure
 
-```text
+text
 automation/
 ├── .github/
 │   └── workflows/
@@ -93,7 +92,6 @@ automation/
 │   └── public/              # CSS, JavaScript and static assets
 ├── README.md
 └── LICENSE
-```
 
 *The structure above reflects the application folder layout. Files such as `package-lock.json`, `views/`, `public/`, and `LICENSE` should be present only if you have created them.*
 
@@ -108,23 +106,21 @@ automation/
 
 ### 1. Clone the Repository
 
-```bash
+bash
 git clone https://github.com/mrsajiddev/automation.git
 cd automation
-```
 
 ### 2. Install Dependencies
 
-```bash
+bash
 cd 01-simple-blog
 npm install
-```
 
 ### 3. Run Locally
 
-```bash
+bash
 npm start
-```
+
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
@@ -164,19 +160,19 @@ The organization and project IDs can be obtained from the `.vercel/project.json`
 
 Ensure GitHub Actions is enabled for your repository and that the workflow exists at:
 
-```text
+text
 .github/workflows/deploy.yml
-```
+
 
 ### 5. Deploy
 
 Push a change to the `main` branch that matches the workflow's path filters:
 
-```bash
+bash
 git add .
 git commit -m "Update Express application"
 git push origin main
-```
+
 
 Monitor the deployment from the repository's **Actions** tab.
 
