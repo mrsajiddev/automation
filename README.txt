@@ -1,219 +1,204 @@
-# Automation — Express.js CI/CD with GitHub Actions & Vercel
+# Automation — Express.js with CI/CD to Vercel
 
-[![Deploy to Vercel](https://github.com/mrsajiddev/automation/actions/workflows/deploy.yml/badge.svg)](https://github.com/mrsajiddev/automation/actions/workflows/deploy.yml)
-![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white)
-![Express.js](https://img.shields.io/badge/Express.js-000000?logo=express&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?logo=githubactions&logoColor=white)
-![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000000?logo=vercel&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-A hands-on project demonstrating how to automate the deployment of an **Express.js application to Vercel using GitHub Actions**.
 
-The goal is to build a simple, reliable CI/CD workflow where code changes pushed to the `main` branch automatically trigger a production deployment.
 
-**Live Demo:** [View the deployed application](https://your-app.vercel.app) <!-- Replace with your actual Vercel URL -->
 
-**Repository:** [mrsajiddev/automation](https://github.com/mrsajiddev/automation)
+\
 
----
 
-## Overview
+A simple Express.js application demonstrating how to deploy a Node.js project to **Vercel using GitHub Actions and CI/CD automation**.
 
-This project explores the fundamentals of continuous integration and continuous deployment (CI/CD) by connecting GitHub, GitHub Actions, and Vercel.
+## 📌 Overview
 
-### Key Features
+This repository is a learning project focused on building, organizing, and deploying web applications with modern development workflows.
 
-- **Automated deployments** — Trigger production deployments when matching changes are pushed to `main`.
-- **CI/CD with GitHub Actions** — Automate checkout, dependency installation, and deployment.
-- **Express.js backend** — Serve HTTP routes and render dynamic or static UI pages.
-- **Vercel hosting** — Deploy the application to a serverless hosting platform.
-- **Secure credentials** — Store deployment tokens and project identifiers in GitHub Actions Secrets.
-- **Repeatable workflow** — Keep deployment steps version-controlled alongside the application.
+The first project, `01-simple-blog`, is a simple Express.js application using EJS templates and static assets.
 
-## CI/CD Workflow
+## ✨ Features
 
-text
-Developer
-   |
-   | Push changes to main
-   v
-GitHub Repository
-   |
-   | Trigger workflow
-   v
-GitHub Actions
-   |
-   |-- Checkout repository
-   |-- Setup Node.js
-   |-- Install dependencies
-   |-- Authenticate with Vercel
-   |-- Deploy application
-   |
-   v
-Vercel Production
-   |
-   v
-Live Express.js Application
+- **Express.js** — Lightweight Node.js web framework.
+- **EJS Templates** — Render dynamic HTML pages.
+- **Static Assets** — Serve CSS, JavaScript, and other public files.
+- **GitHub Actions** — Automate deployment workflows.
+- **Vercel Hosting** — Deploy the application to production.
+- **Environment Secrets** — Store deployment credentials securely in GitHub Actions.
 
-### Deployment Process
+## 🛠️ Tech Stack
 
-1. A developer commits and pushes changes to `main`.
-2. GitHub Actions detects the push if it matches the configured workflow triggers.
-3. The runner checks out the repository and prepares the Node.js environment.
-4. The Vercel CLI authenticates using GitHub Secrets and deploys the application.
-5. Vercel publishes the deployment to the configured production project.
+| Technology     | Purpose                        |
+| -------------- | ------------------------------ |
+| Node.js        | JavaScript runtime             |
+| Express.js     | Backend web framework          |
+| EJS            | Server-side templating         |
+| HTML & CSS     | Frontend structure and styling |
+| Git & GitHub   | Version control                |
+| GitHub Actions | CI/CD automation               |
+| Vercel         | Application hosting            |
 
-> **Note:** Pull request preview deployments are not included unless explicitly configured in the workflow.
+## 📂 Project Structure
 
-## Tech Stack
-
-| Technology | Purpose |
-|---|---|
-| Node.js | JavaScript runtime |
-| Express.js | HTTP server and routing |
-| EJS | Server-side HTML templating, if enabled |
-| Git & GitHub | Source control and collaboration |
-| GitHub Actions | Workflow automation |
-| Vercel | Application hosting and deployment |
-| npm | Dependency management |
-
-## Project Structure
-
-text
+```text
 automation/
 ├── .github/
 │   └── workflows/
-│       └── vercel_deploy.yml       # GitHub Actions deployment workflow
+│       └── deploy.yml
 ├── 01-simple-blog/
-│   ├── index.js             # Express application entry point
-│   ├── package.json         # Project metadata and dependencies
-│   ├── package-lock.json    # Locked dependency versions
-│   ├── views/               # EJS templates, if configured
-│   └── public/              # CSS, JavaScript and static assets
+│   ├── index.js
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── views/
+│   │   └── home.ejs
+│   └── public/
+│       └── style.css
 ├── README.md
 └── LICENSE
+```
 
-*The structure above reflects the application folder layout. Files such as `package-lock.json`, `views/`, `public/`, and `LICENSE` should be present only if you have created them.*
+*Note: The structure above shows the expected files. Remove any entries that don't exist in your repository.*
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) 22 or a compatible supported version
-- npm
+Make sure you have installed:
+
+- [Node.js](https://nodejs.org/)
+- [Git](https://git-scm.com/)
 - A GitHub account
-- A Vercel account for deployment
 
 ### 1. Clone the Repository
 
-bash
+```bash
 git clone https://github.com/mrsajiddev/automation.git
-cd automation
+```
 
-### 2. Install Dependencies
+### 2. Navigate to the Application
 
-bash
-cd 01-simple-blog
+```bash
+cd automation/01-simple-blog
+```
+
+### 3. Install Dependencies
+
+```bash
 npm install
+```
 
-### 3. Run Locally
+### 4. Start the Application
 
-bash
+```bash
 npm start
+```
 
+Open your browser and visit:
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+**[http://localhost:3000](http://localhost:3000)**
 
-## Deployment Setup
+## ⚙️ CI/CD Workflow
 
-Follow these steps to configure automated deployment for your own Vercel project.
+The project uses GitHub Actions to automate production deployment to Vercel.
 
-### 1. Create a Vercel Project
+### Deployment Flow
 
-Create a project in the [Vercel Dashboard](https://vercel.com/dashboard) and link it to your GitHub repository.
+1. Make changes to the application.
+2. Commit and push your changes to the `main` branch.
+3. GitHub Actions detects changes to the application or deployment workflow.
+4. The workflow installs the Vercel CLI and deploys the project.
+5. Vercel builds and hosts the application.
 
-Configure the **Root Directory** to match the location of your Express application. In this repository, that directory is `01-simple-blog`.
+### GitHub Actions Workflow
 
-### 2. Generate a Vercel Token
+Workflow file:
 
-Open your Vercel account settings and create an access token.
-
-Keep this token private and never commit it to the repository.
-
-### 3. Configure GitHub Secrets
-
-Navigate to:
-
-**GitHub Repository → Settings → Secrets and variables → Actions**
-
-Add the following repository secrets:
-
-| Secret | Description |
-|---|---|
-| `VERCEL_TOKEN` | Vercel access token |
-| `VERCEL_ORG_ID` | Vercel account or team ID |
-| `VERCEL_PROJECT_ID` | Vercel project ID |
-
-The organization and project IDs can be obtained from the `.vercel/project.json` file created when linking a local project with the Vercel CLI.
-
-### 4. Enable GitHub Actions
-
-Ensure GitHub Actions is enabled for your repository and that the workflow exists at:
-
-text
+```text
 .github/workflows/deploy.yml
+```
+
+The workflow is configured to run when changes are pushed to `main` that affect:
+
+- `01-simple-blog/`
+- `.github/workflows/deploy.yml`
+
+It can also be triggered manually through the GitHub Actions tab.
+
+## 🔐 Deployment Configuration
+
+To configure automated deployment, set up your Vercel project and add the following repository secrets in:
+
+**GitHub → Repository → Settings → Secrets and variables → Actions**
+
+| Secret              | Description               |
+| ------------------- | ------------------------- |
+| `VERCEL_TOKEN`      | Vercel access token       |
+| `VERCEL_ORG_ID`     | Vercel team or account ID |
+| `VERCEL_PROJECT_ID` | Vercel project ID         |
+
+Configure the Vercel project's **Root Directory** as:
+
+```text
+01-simple-blog
+```
+
+Keep credentials in GitHub Secrets. Never commit access tokens or private credentials to your repository.
+
+## 🌐 Live Demo
+
+**Live Application:** [Open the deployed application](https://your-app.vercel.app)
+
+Replace `https://your-app.vercel.app` with your actual Vercel deployment URL.
+
+## 🖼️ Screenshots
+
+Add screenshots of your application to a `screenshots/` folder in the repository.
+
+For example:
+
+```text
+automation/
+├── screenshots/
+│   └── home-page.png
+└── README.md
+```
+
+Then display them in this section:
 
 
-### 5. Deploy
 
-Push a change to the `main` branch that matches the workflow's path filters:
+*If you haven't added the screenshot file yet, upload it first. Otherwise, GitHub will show a broken image.*
 
-bash
-git add .
-git commit -m "Update Express application"
-git push origin main
+## 📚 What I'm Learning
 
+- Node.js and Express.js application development
+- Server-side rendering with EJS
+- Git and GitHub workflows
+- CI/CD using GitHub Actions
+- Automated production deployments
+- Cloud deployment with Vercel
 
-Monitor the deployment from the repository's **Actions** tab.
+## 🗺️ Roadmap
 
-After the workflow completes successfully, open your Vercel production URL to verify the application.
+- [x] Create a basic Express.js application
+- [x] Configure GitHub Actions for deployment
+- [x] Deploy the application to Vercel
+- [ ] Add more sample projects
+- [ ] Add automated testing
+- [ ] Improve deployment checks and error handling
 
-## Security Best Practices
+## 🤝 Contributing
 
-- Keep all access tokens and credentials in GitHub Secrets.
-- Never commit `.env` files or `.vercel` credentials to a public repository.
-- Grant deployment tokens only the permissions they require.
-- Avoid logging secrets in workflow output.
-- Review deployment logs when a build or deployment fails.
+Suggestions and improvements are welcome.
 
-## Roadmap
+1. Fork the repository.
+2. Create a feature branch.
+3. Commit your changes.
+4. Open a pull request.
 
-- [ ] Add automated API tests with Jest and Supertest.
-- [ ] Add ESLint for consistent code quality.
-- [ ] Add a test job that must pass before production deployment.
-- [ ] Configure staging and production environments.
-- [ ] Add deployment notifications and uptime monitoring.
-- [ ] Add pull request preview deployments.
-- [ ] Expand the Express application with additional routes and UI components.
+## 📄 License
 
-## What I'm Learning
+This project is intended for learning and experimentation. If you include an MIT license, add a `LICENSE` file containing the appropriate MIT license text.
 
-This project is part of my hands-on exploration of:
+---
 
-- CI/CD pipeline design
-- GitHub Actions workflow configuration
-- Node.js application deployment
-- Vercel project configuration
-- Environment variables and deployment secrets
-- Automated delivery of web applications
+**Built by [Muhammad Sajid](https://github.com/mrsajiddev)**
 
-## Author
-
-**Muhammad Sajid** — Senior Software Engineer
-
-- [LinkedIn](https://linkedin.com/in/mr-sajid)
-- [GitHub](https://github.com/mrsajiddev)
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
