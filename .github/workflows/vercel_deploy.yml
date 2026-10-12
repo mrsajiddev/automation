@@ -32,6 +32,15 @@ jobs:
         with:
           node-version: 22
 
+      - name: Verify Node and npm
+        run: |
+          node --version
+          npm --version
+          which npm
+
+      - name: Install Dependencies
+        run: npm install
+
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
