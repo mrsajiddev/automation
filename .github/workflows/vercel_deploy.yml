@@ -7,7 +7,7 @@ on:
       - main
     paths:
       - '01-simple-blog/**'
-      - '.github/workflows/deploy.yml'
+      - '.github/workflows/vercel_deploy.yml'
 
   workflow_dispatch:
 
